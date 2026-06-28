@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProfEmpreendedor — Renda digital para professores</title>
+<meta name="description" content="Aprenda a gerar renda extra como afiliado e infoprodutor. Curso criado por Prof Thales para professores que querem monetizar seu conhecimento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --verde: #1A3A2A;
+    --verde-medio: #3DB87A;
+    --verde-claro: #7ED4A8;
+    --verde-bg: #E8F5EE;
+    --amarelo: #F5C842;
+    --amarelo-escuro: #412402;
+    --creme: #F7F5EF;
+    --grafite: #2C2C2A;
+    --cinza: #5F5E5A;
+    --cinza-claro: #D3D1C7;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--grafite); background: #fff; line-height: 1.7; }
+  h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; line-height: 1.2; }
+  .btn {
+    display: inline-block; background: var(--amarelo); color: var(--amarelo-escuro);
+    font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.1rem;
+    padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 4px 0 #c8a030;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #c8a030; }
+  .btn:active { transform: translateY(1px); box-shadow: 0 2px 0 #c8a030; }
+  .btn-lg { font-size: 1.2rem; padding: 1.25rem 3rem; }
+  .tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 14px; border-radius: 20px; margin-bottom: 1rem;
+  }
+  .tag-verde { background: var(--verde); color: var(--verde-claro); }
+  .tag-amarelo { background: var(--amarelo); color: var(--amarelo-escuro); }
+  section { padding: 5rem 1.5rem; }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--verde); padding: 1rem 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-logo { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.1rem; color: #fff; text-decoration: none; }
+  .nav-logo span { color: var(--verde-claro); }
+  .nav-cta {
+    background: var(--amarelo); color: var(--amarelo-escuro);
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 0.85rem; padding: 0.5rem 1.25rem; border-radius: 50px; text-decoration: none;
+  }
+
+  /* HERO */
+  .hero { background: var(--verde); padding: 5rem 1.5rem 4rem; text-align: center; }
+  .hero-eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--verde-claro); margin-bottom: 1.5rem; }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; color: #fff; margin-bottom: 1.5rem; max-width: 760px; margin-left: auto; margin-right: auto; }
+  .hero h1 em { color: var(--amarelo); font-style: normal; }
+  .hero-sub { font-size: 1.15rem; color: var(--verde-claro); max-width: 560px; margin: 0 auto 2.5rem; }
+  .hero-preco { margin-top: 1.5rem; font-size: 0.9rem; color: rgba(126,212,168,0.7); }
+  .hero-preco strong { color: var(--verde-claro); }
+
+  /* NUMEROS */
+  .numeros { background: var(--verde-medio); padding: 2.5rem 1.5rem; }
+  .numeros-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; max-width: 860px; margin: 0 auto; text-align: center; }
+  .numero-item strong { display: block; font-family: 'Poppins', sans-serif; font-size: 2.25rem; font-weight: 800; color: #fff; }
+  .numero-item span { font-size: 0.88rem; color: rgba(255,255,255,0.8); }
+
+  /* PARA QUEM */
+  .para-quem { background: var(--creme); }
+  .para-quem h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); color: var(--verde); margin-bottom: 2.5rem; text-align: center; }
+  .checks { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+  .check-item { display: flex; gap: 0.875rem; align-items: flex-start; background: #fff; border-radius: 12px; padding: 1.125rem 1.25rem; border: 1px solid var(--cinza-claro); }
+  .check-icon { width: 24px; height: 24px; border-radius: 50%; background: var(--verde-medio); flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.7rem; font-weight: 700; }
+  .check-item p { font-size: 0.95rem; color: var(--grafite); }
+
+  /* PROBLEMA */
+  .problema { background: #fff; }
+  .problema h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); color: var(--verde); margin-bottom: 1rem; }
+  .problema-lead { font-size: 1.1rem; color: var(--cinza); margin-bottom: 1.5rem; max-width: 640px; }
+  .problema-destaque { background: var(--verde); border-radius: 16px; padding: 2rem 2.5rem; margin-top: 2rem; }
+  .problema-destaque p { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 600; color: #fff; line-height: 1.5; }
+  .problema-destaque p em { color: var(--amarelo); font-style: normal; }
+
+  /* SOLUCAO */
+  .solucao { background: var(--creme); }
+  .solucao h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); color: var(--verde); margin-bottom: 0.5rem; }
+  .solucao-sub { font-size: 1rem; color: var(--cinza); margin-bottom: 3rem; max-width: 560px; }
+  .eixos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .eixo { background: #fff; border-radius: 16px; padding: 2rem; border: 1px solid var(--cinza-claro); }
+  .eixo-num { font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: 800; color: var(--verde-medio); line-height: 1; margin-bottom: 0.5rem; }
+  .eixo h3 { font-size: 1.25rem; color: var(--verde); margin-bottom: 0.75rem; }
+  .eixo p { font-size: 0.95rem; color: var(--cinza); }
+  .eixo-badge { display: inline-block; margin-top: 1.25rem; background: var(--verde-bg); color: var(--verde); font-size: 0.78rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+
+  /* MODULOS */
+  .modulos { background: var(--verde); }
+  .modulos h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); color: #fff; margin-bottom: 0.5rem; }
+  .modulos-sub { color: var(--verde-claro); margin-bottom: 3rem; }
+  .modulo { background: rgba(255,255,255,0.06); border-radius: 10px; padding: 1.5rem 1.75rem; margin-bottom: 0.75rem; border: 1px solid rgba(126,212,168,0.15); }
+  .modulo-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.75rem; }
+  .modulo-titulo { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 600; color: #fff; }
+  .modulo-tag { font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+  .mt-verde { background: var(--verde-medio); color: #fff; }
+  .mt-amarelo { background: var(--amarelo); color: var(--amarelo-escuro); }
+  .modulo-aulas { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+  .modulo-aulas li { font-size: 0.88rem; color: var(--verde-claro); padding-left: 1.25rem; position: relative; }
+  .modulo-aulas li::before { content: '→'; position: absolute; left: 0; color: var(--verde-medio); }
+
+  /* AFILIADOS */
+  .afiliados { background: var(--creme); }
+  .afiliados h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); color: var(--verde); margin-bottom: 0.5rem; }
+  .afiliados-sub { color: var(--cinza); margin-bottom: 2.5rem; }
+  .produtos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+  .produto-card { background: #fff; border-radius: 16px; padding: 1.75rem; border: 1px solid var(--cinza-claro); }
+  .produto-nome { font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--verde); margin-bottom: 0.35rem; }
+  .produto-desc { font-size: 0.88rem; color: var(--cinza); margin-bottom: 1.25rem; }
+  .produto-valores { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--cinza-claro); padding-top: 1rem; }
+  .produto-preco { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--grafite); }
+  .produto-comissao { text-align: right; font-size: 0.8rem; color: var(--cinza); }
+  .produto-comissao strong { display: block; font-family: 'Poppins', sans-serif; font-size: 1.1rem; color: var(--verde-medio); }
+
+  /* PRECO */
+  .preco-section { background: #fff; text-align: center; }
+  .preco-section h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); color: var(--verde); margin-bottom: 0.5rem; }
+  .preco-section .sub { color: var(--cinza); margin-bottom: 3rem; }
+  .preco-card { background: var(--verde); border-radius: 24px; padding: 3rem 2.5rem; max-width: 520px; margin: 0 auto; text-align: center; }
+  .preco-valor { font-family: 'Poppins', sans-serif; font-size: 5rem; font-weight: 800; color: #fff; line-height: 1; }
+  .preco-label { font-size: 0.9rem; color: var(--verde-claro); margin-bottom: 2rem; }
+  .preco-items { list-style: none; text-align: left; margin-bottom: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .preco-items li { display: flex; align-items: center; gap: 0.75rem; font-size: 0.95rem; color: #fff; }
+  .preco-items li::before { content: '✓'; width: 22px; height: 22px; min-width: 22px; border-radius: 50%; background: var(--verde-medio); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; }
+  .garantia { margin-top: 1.5rem; font-size: 0.82rem; color: var(--verde-claro); opacity: 0.8; }
+
+  /* SOBRE */
+  .sobre { background: var(--creme); }
+  .sobre-inner { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; align-items: start; }
+  .sobre-avatar { width: 200px; height: 200px; border-radius: 20px; background: var(--verde); display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; font-size: 4rem; font-weight: 800; color: var(--verde-claro); border: 4px solid var(--verde-medio); }
+  .sobre h2 { font-size: clamp(1.25rem, 2.5vw, 1.875rem); color: var(--verde); margin-bottom: 1rem; }
+  .sobre p { font-size: 0.95rem; color: var(--cinza); margin-bottom: 0.875rem; }
+  .credenciais { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+  .credencial { font-size: 0.78rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; background: var(--verde); color: var(--verde-claro); }
+
+  /* CTA FINAL */
+  .cta-final { background: var(--verde-medio); text-align: center; padding: 5rem 1.5rem; }
+  .cta-final h2 { font-size: clamp(1.75rem, 4vw, 3rem); color: #fff; margin-bottom: 1rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .cta-final p { color: rgba(255,255,255,0.85); margin-bottom: 2.5rem; font-size: 1.05rem; }
+
+  footer { background: var(--verde); padding: 2rem 1.5rem; text-align: center; font-size: 0.82rem; color: rgba(126,212,168,0.6); }
+  footer a { color: var(--verde-claro); }
+
+  @media (max-width: 640px) {
+    .sobre-inner { grid-template-columns: 1fr; }
+    .sobre-avatar { width: 100px; height: 100px; font-size: 2.5rem; }
+    .preco-valor { font-size: 3.5rem; }
+    .btn-lg { font-size: 1rem; padding: 1rem 1.75rem; }
+    .modulo-header { flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#"><span>Prof</span>Empreendedor</a>
+  <a class="nav-cta" href="https://pay.hotmart.com/R83156562C" target="_blank">Quero começar</a>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Para professores que querem mais</p>
+    <h1>Você já tem audiência,<br>credibilidade e conteúdo.<br>Faltava só <em>o método.</em></h1>
+    <p class="hero-sub">Aprenda a gerar renda extra como afiliado e infoprodutor — sem abandonar a sala de aula e sem investimento inicial.</p>
+    <a class="btn btn-lg" href="https://pay.hotmart.com/R83156562C" target="_blank">Quero entrar no ProfEmpreendedor</a>
+    <p class="hero-preco">R$ 198 · acesso vitalício · <strong>2 formações completas</strong></p>
+  </div>
+</section>
+
+<div class="numeros">
+  <div class="numeros-grid">
+    <div class="numero-item"><strong>R$ 198</strong><span>preço único vitalício</span></div>
+    <div class="numero-item"><strong>2</strong><span>formações completas</span></div>
+    <div class="numero-item"><strong>R$ 50</strong><span>comissão por indicação</span></div>
+    <div class="numero-item"><strong>7 dias</strong><span>para a primeira venda</span></div>
+  </div>
+</div>
+
+<section class="para-quem">
+  <div class="container">
+    <h2>Este curso é para você que…</h2>
+    <div class="checks">
+      <div class="check-item"><div class="check-icon">✓</div><p>É professor e depende só do salário do Estado para pagar as contas</p></div>
+      <div class="check-item"><div class="check-icon">✓</div><p>Já ouviu falar em renda digital mas nunca soube por onde começar</p></div>
+      <div class="check-item"><div class="check-icon">✓</div><p>Tem conhecimento valioso e não sabe como transformar isso em produto</p></div>
+      <div class="check-item"><div class="check-icon">✓</div><p>Quer renda extra que respeite sua rotina sem abrir empresa</p></div>
+      <div class="check-item"><div class="check-icon">✓</div><p>Tem colegas, grupos de WhatsApp e pais de alunos — mas nunca monetizou isso</p></div>
+      <div class="check-item"><div class="check-icon">✓</div><p>Está cansado de indicar cursos e produtos de graça para todo mundo</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="problema">
+  <div class="container">
+    <span class="tag tag-verde">O problema real</span>
+    <h2>Professor é um dos profissionais com mais potencial de renda digital no Brasil.</h2>
+    <p class="problema-lead">Você já sabe ensinar. Já tem credibilidade. Já tem audiência — seus alunos, os pais, seus colegas. O que falta não é talento. É método.</p>
+    <p style="font-size:0.95rem; color:var(--cinza);">Ninguém te ensinou na faculdade que seu conhecimento vale dinheiro fora da sala de aula. Que você pode indicar um curso e receber comissão. Que pode criar um material digital e vender para centenas de pessoas enquanto dorme.</p>
+    <div class="problema-destaque">
+      <p>Você provavelmente já indicou cursos, livros e aplicativos para colegas de graça. <em>Já passou da hora de receber por isso.</em></p>
+    </div>
+  </div>
+</section>
+
+<section class="solucao">
+  <div class="container">
+    <span class="tag tag-verde">A solução</span>
+    <h2>Dois caminhos. Um curso.</h2>
+    <p class="solucao-sub">O ProfEmpreendedor te forma em dois modelos de renda digital que se complementam — você começa pelo mais rápido e evolui para o mais escalável.</p>
+    <div class="eixos">
+      <div class="eixo">
+        <div class="eixo-num">01</div>
+        <h3>Afiliado</h3>
+        <p>Você indica produtos de outras pessoas e recebe comissão. Sem criar nada. Sem estoque. Você já tem a audiência — seus colegas, os pais dos alunos, seus grupos de WhatsApp.</p>
+        <span class="eixo-badge">Primeira venda em até 7 dias</span>
+      </div>
+      <div class="eixo">
+        <div class="eixo-num">02</div>
+        <h3>Infoprodutor</h3>
+        <p>Você cria e vende seu próprio produto digital a partir do conhecimento que já tem. Professor é o profissional mais preparado do mundo para criar infoprodutos.</p>
+        <span class="eixo-badge">Produto criado e publicado ao final</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="modulos">
+  <div class="container">
+    <span class="tag tag-amarelo">Conteúdo do curso</span>
+    <h2>O que você vai aprender</h2>
+    <p class="modulos-sub">4 módulos + encerramento · videoaulas gravadas · acesso vitalício · você estuda no seu ritmo</p>
+
+    <div class="modulo">
+      <div class="modulo-header">
+        <span class="modulo-titulo">Módulo 0 — Boas-vindas e mentalidade</span>
+        <span class="modulo-tag mt-verde">~20 min</span>
+      </div>
+      <ul class="modulo-aulas">
+        <li>Por que professores são empreendedores naturais (e ainda não sabem)</li>
+        <li>Os dois caminhos: afiliado e infoprodutor</li>
+        <li>Como o curso funciona e o que você vai entregar ao final</li>
+      </ul>
+    </div>
+
+    <div class="modulo">
+      <div class="modulo-header">
+        <span class="modulo-titulo">Módulo 1 — Afiliado: sua primeira venda</span>
+        <span class="modulo-tag mt-verde">~1h20</span>
+      </div>
+      <ul class="modulo-aulas">
+        <li>O que é ser afiliado e por que é o caminho mais rápido</li>
+        <li>Os dois produtos prontos para você indicar hoje</li>
+        <li>Como gerar seu link de afiliado — passo a passo</li>
+        <li>Seu primeiro público: colegas e pais de alunos</li>
+        <li>Como apresentar o produto sem parecer vendedor</li>
+        <li>Mensagem pronta para WhatsApp, conversa presencial e redes sociais</li>
+        <li>Desafio da primeira venda — missão com prazo de 7 dias</li>
+      </ul>
+    </div>
+
+    <div class="modulo">
+      <div class="modulo-header">
+        <span class="modulo-titulo">Módulo 2 — Afiliado: construindo consistência</span>
+        <span class="modulo-tag mt-verde">~40 min</span>
+      </div>
+      <ul class="modulo-aulas">
+        <li>Como transformar sua rede de contatos em audiência</li>
+        <li>Criando conteúdo simples que vende — sem precisar ser influencer</li>
+        <li>Indicação premiada: como convidar colegas para o ProfEmpreendedor</li>
+        <li>Acompanhando seus resultados: métricas que importam</li>
+      </ul>
+    </div>
+
+    <div class="modulo">
+      <div class="modulo-header">
+        <span class="modulo-titulo">Módulo 3 — Infoprodutor: do conhecimento ao produto</span>
+        <span class="modulo-tag mt-verde">~1h</span>
+      </div>
+      <ul class="modulo-aulas">
+        <li>O que é um infoproduto e por que professores têm vantagem</li>
+        <li>Descobrindo o que você já sabe que outros precisam aprender</li>
+        <li>Formatos possíveis: e-book, minicurso, workshop, mentoria</li>
+        <li>Estruturando seu primeiro produto em uma página</li>
+        <li>Plataformas: onde hospedar e vender</li>
+        <li>Precificação: quanto cobrar no começo</li>
+      </ul>
+    </div>
+
+    <div class="modulo">
+      <div class="modulo-header">
+        <span class="modulo-titulo">Módulo 4 — Lançamento do seu primeiro produto</span>
+        <span class="modulo-tag mt-amarelo">~40 min</span>
+      </div>
+      <ul class="modulo-aulas">
+        <li>Produto Mínimo Viável: feito é melhor que perfeito</li>
+        <li>Sua página de vendas em 30 minutos</li>
+        <li>Primeira divulgação: lista de contatos e grupos de WhatsApp</li>
+        <li>Desafio do primeiro produto publicado</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="afiliados">
+  <div class="container">
+    <span class="tag tag-verde">Comece no primeiro módulo</span>
+    <h2>Dois produtos prontos para você indicar hoje</h2>
+    <p class="afiliados-sub">Ao entrar no curso você já tem acesso a dois produtos de alta necessidade, preço acessível e comissão generosa — para quebrar a barreira da primeira venda ainda no módulo 1.</p>
+    <div class="produtos-grid">
+      <div class="produto-card">
+        <div class="produto-nome">Professores Mais Protegidos</div>
+        <div class="produto-desc">Segurança digital para educadores. Tema urgente, preço que nenhum colega questiona.</div>
+        <div class="produto-valores">
+          <div class="produto-preco">R$ 99</div>
+          <div class="produto-comissao">sua comissão<strong>R$ 50</strong></div>
+        </div>
+      </div>
+      <div class="produto-card">
+        <div class="produto-nome">Seus Pais Mais Protegidos</div>
+        <div class="produto-desc">Segurança digital para pais de alunos. Você já tem acesso direto a esse público todo dia.</div>
+        <div class="produto-valores">
+          <div class="produto-preco">R$ 49</div>
+          <div class="produto-comissao">sua comissão<strong>R$ 30</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="preco-section">
+  <div class="container">
+    <span class="tag tag-verde">Investimento</span>
+    <h2>Tudo isso por um valor único</h2>
+    <p class="sub">Sem mensalidade. Sem assinatura. Você paga uma vez e tem acesso para sempre.</p>
+    <div class="preco-card">
+      <div class="preco-valor">R$ 198</div>
+      <div class="preco-label">pagamento único · acesso vitalício</div>
+      <ul class="preco-items">
+        <li>Módulos 0 a 4 completos em videoaula</li>
+        <li>2 produtos prontos para indicar como afiliado</li>
+        <li>Scripts de abordagem prontos para usar</li>
+        <li>Desafio da primeira venda em 7 dias</li>
+        <li>Desafio do primeiro produto publicado</li>
+        <li>Acesso à rede de afiliados ProfEmpreendedor</li>
+        <li>Programa de premiação por indicação</li>
+      </ul>
+      <a class="btn btn-lg" href="https://pay.hotmart.com/R83156562C" target="_blank">Quero entrar agora</a>
+      <p class="garantia">Pagamento seguro via Hotmart · Cartão, Pix ou boleto</p>
+    </div>
+  </div>
+</section>
+
+<section class="sobre">
+  <div class="container">
+    <div class="sobre-inner">
+      <div class="sobre-avatar">PT</div>
+      <div>
+        <span class="tag tag-verde">Quem vai te ensinar</span>
+        <h2>Prof Thales</h2>
+        <p>Consultor com mais de 20 anos de experiência em formação de pessoas, vendas, empreendedorismo e desenvolvimento de equipes. Instrutor credenciado pelo Sebrae e pelo Senac.</p>
+        <p>Criei o ProfEmpreendedor porque vi de perto o quanto professores têm a oferecer — e o quanto deixam na mesa por falta de método. Este curso é o que eu queria ter tido acesso quando comecei na área de educação.</p>
+        <div class="credenciais">
+          <span class="credencial">Credenciado Sebrae</span>
+          <span class="credencial">Instrutor Senac</span>
+          <span class="credencial">+20 anos de consultoria</span>
+          <span class="credencial">Mestre em Tecnologia e Gestão</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <h2>Você vai continuar indicando curso de graça para o resto da vida?</h2>
+    <p>Tem um jeito melhor. E começa com R$ 198.</p>
+    <a class="btn btn-lg" href="https://pay.hotmart.com/R83156562C" target="_blank">Quero entrar no ProfEmpreendedor</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 ProfEmpreendedor · Prof Thales · Todos os direitos reservados</p>
+  <p style="margin-top:0.5rem;">Dúvidas? <a href="https://instagram.com/profempreendedor">@profempreendedor no Instagram</a></p>
+</footer>
+
+</body>
+</html>
